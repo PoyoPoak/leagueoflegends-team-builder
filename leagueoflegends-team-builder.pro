@@ -5,7 +5,9 @@ CONFIG -= qt
 
 CONFIG -= debug_and_release
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    champion.cpp \
+    team.cpp
 
 QMAKE_CXXFLAGS += -pedantic
 QMAKE_CXXFLAGS += -pedantic-errors
@@ -16,4 +18,8 @@ QMAKE_CXXFLAGS += -Wredundant-decls
 QMAKE_CXXFLAGS += -Winit-self
 QMAKE_CXXFLAGS += -Wshadow
 QMAKE_CXXFLAGS += -Wconversion
+
+HEADERS += \
+    champion.h \
+    team.h
 
