@@ -6,7 +6,7 @@ CONFIG -= qt
 CONFIG -= debug_and_release
 
 SOURCES += main.cpp \
-    champion.cpp \
+    functions.cpp \
     team.cpp
 
 QMAKE_CXXFLAGS += -pedantic
@@ -21,5 +21,10 @@ QMAKE_CXXFLAGS += -Wconversion
 
 HEADERS += \
     champion.h \
+    functions.h \
     team.h
+
+DISTFILES += \
+    Champions.txt \
+    PlayerDatabase.txt
 

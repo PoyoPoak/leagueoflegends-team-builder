@@ -1,5 +1,5 @@
-#ifndef CHAMPION_H
-#define CHAMPION_H
+#ifndef champion_H
+#define champion_H
 #include <iostream>
 
 using namespace std;
@@ -8,21 +8,21 @@ enum lane{ TOP, JUN, MID, BOT, SUP };
 enum damage{ AD, AP, UTL };
 enum game{ EARLY, MIDDLE, LATE };
 
-struct role{
-    bool HardCC;
-    bool HardEngage;
-    bool Disengage;
-    bool Poke;
-    bool WaveClear;
-    bool Tank;
+struct Role{
+    int HardCC = 0;
+    int HardEngage = 0;
+    int Disengage = 0;
+    int Poke = 0;
+    int WaveClear = 0;
+    int Tank = 0;
 };
 
 struct Champion{
     string name;
     lane lane;
-    role roles;
+    Role roles;
     damage damageType;
     game game;
 };
 
-#endif // CHAMPION_H
+#endif // champion_H

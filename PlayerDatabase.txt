@@ -1,0 +1,3 @@
+bear,shen,karma,zyra,jhin,malzahar
+bazz,jhin,eve,tahm_kench,veigar,twitch
+peter,jinx,soraka,sett,aatrox,mordekaiser
