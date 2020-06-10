@@ -6,6 +6,7 @@ CONFIG -= qt
 CONFIG -= debug_and_release
 
 SOURCES += main.cpp \
+    champion.cpp \
     functions.cpp \
     team.cpp
 

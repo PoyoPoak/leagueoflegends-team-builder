@@ -1,3 +1,18 @@
-bear,shen,karma,zyra,jhin,malzahar
-bazz,jhin,eve,tahm_kench,veigar,twitch
-peter,jinx,soraka,sett,aatrox,mordekaiser
+bea
+    shen karma
+    jarvan zac
+    malzahar lissandra
+    jhin ashe
+    zyra karma
+bazz
+    panth kayle
+    evelynn fiddlesticks
+    twisted_fate veigar
+    jhin twitch
+    tahm_kench thresh
+peter
+    aatrox sett
+    nocturne vi
+    zed leblanc
+    jinx twitch
+    soraka leona
