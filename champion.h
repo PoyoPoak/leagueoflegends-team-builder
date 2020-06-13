@@ -1,5 +1,6 @@
 #ifndef champion_H
 #define champion_H
+
 #include <iostream>
 
 using namespace std;

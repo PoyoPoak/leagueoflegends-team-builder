@@ -1,7 +1,5 @@
 #include "team.h"
 
-using namespace std;
-
 void TeamComp::printTeam() const{
     cout << "Top: " << team.at(top).name << endl
          << "Jung: " << team.at(jun).name << endl

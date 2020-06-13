@@ -3,20 +3,16 @@
 
 #include <iostream>
 #include <fstream>
+
 #include "champion.h"
+#include "fileManage.h"
+#include "player.h"
 #include "team.h"
 
-//const int TEAM_SIZE = 10;
-//const int CHAMP_COUNT = 148;
+using namespace std;
 
-//struct Player{
-//    string name;
-//    Champion bestChamps[5];
-//};
+const int BAN_COUNT = 10;
 
-//void readChampionsFile(Champion (&list)[CHAMP_COUNT]);
-//void readPlayerProfs(Player (&players)[5]);
-//Champion championSearch(const string &name);
-//void setBans(Champion (&bans)[10]);
+void setBans(Champion (&bans)[BAN_COUNT]);
 
 #endif // FUNCTIONS_H
