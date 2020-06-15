@@ -19,6 +19,9 @@ bool TeamComp::roleCheck() const{
         total.Poke += team.at(i).roles.Poke;
         total.WaveClear += team.at(i).roles.WaveClear;
         total.Tank += team.at(i).roles.Tank;
+        total.EarlyGame += team.at(i).roles.EarlyGame;
+        total.MidGame += team.at(i).roles.MidGame;
+        total.LateGame += team.at(i).roles.LateGame;
     }
 
     // If all roles filled
@@ -27,7 +30,10 @@ bool TeamComp::roleCheck() const{
         && total.Disengage > 0
         && total.Poke > 0
         && total.WaveClear > 0
-        && total.Tank > 0){
+        && total.Tank > 0
+        && total.EarlyGame > 0
+        && total.MidGame > 0
+        && total.LateGame > 0){
         return true;
     }
 

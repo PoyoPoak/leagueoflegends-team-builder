@@ -7,7 +7,6 @@ using namespace std;
 
 enum lane{ TOP, JUN, MID, BOT, SUP };
 enum damage{ AD, AP, UTL };
-enum phase{ EARLY, MIDDLE, LATE };
 
 struct Role{
     int HardCC = 0;
@@ -16,6 +15,9 @@ struct Role{
     int Poke = 0;
     int WaveClear = 0;
     int Tank = 0;
+    int EarlyGame = 0;
+    int MidGame = 0;
+    int LateGame = 0;
 };
 
 struct Champion{
@@ -23,7 +25,6 @@ struct Champion{
     lane lane;
     Role roles;
     damage damageType;
-    phase game;
 
     Champion modifyTraits(const Champion& defaultChampion) const;
 };

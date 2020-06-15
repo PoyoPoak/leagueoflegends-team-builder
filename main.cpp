@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-    fstream ChampionsFile("ChampionsShort.txt"); // Currently on test file
+    fstream ChampionsFile("Champions.txt");
     if(!ChampionsFile.is_open()) {
        cout << "Error opening Champions.txt" << endl;
     }

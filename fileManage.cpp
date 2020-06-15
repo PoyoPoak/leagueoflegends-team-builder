@@ -42,6 +42,12 @@ void readChampionsFile(fstream& ChampionsFile, Champion (&champList)[CHAMP_COUNT
         currentChamp.roles.WaveClear = tempStr.back() - 48;
         getline(ChampionsFile, tempStr); // tank
         currentChamp.roles.Tank = tempStr.back() - 48;
+        getline(ChampionsFile, tempStr); // early game
+        currentChamp.roles.EarlyGame = tempStr.back() - 48;
+        getline(ChampionsFile, tempStr); // mid game
+        currentChamp.roles.MidGame = tempStr.back() - 48;
+        getline(ChampionsFile, tempStr); // late game
+        currentChamp.roles.LateGame = tempStr.back() - 48;
 
         // Damage
         getline(ChampionsFile, tempStr);
@@ -51,17 +57,6 @@ void readChampionsFile(fstream& ChampionsFile, Champion (&champList)[CHAMP_COUNT
             case 1 : currentChamp.damageType = AP;
             break;
             case 2 : currentChamp.damageType = UTL;
-            break;
-        }
-
-        // Phase
-        getline(ChampionsFile, tempStr);
-        switch (tempStr.back() - 48) {
-            case 0 : currentChamp.game = EARLY;
-            break;
-            case 1 : currentChamp.game = MIDDLE;
-            break;
-            case 2 : currentChamp.game = LATE;
             break;
         }
 
