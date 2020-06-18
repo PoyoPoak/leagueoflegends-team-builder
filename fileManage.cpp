@@ -6,7 +6,6 @@ void readChampionsFile(fstream& ChampionsFile, Champion (&champList)[CHAMP_COUNT
         Champion currentChamp;
         string tempStr;
 
-
         // Name
         getline(ChampionsFile, tempStr);
         if(tempStr == ""){
@@ -66,18 +65,42 @@ void readChampionsFile(fstream& ChampionsFile, Champion (&champList)[CHAMP_COUNT
     }
 }
 
-//void readPlayerProfs(Player (&playersList)[TEAM_SIZE], fstream& PlayersFile){
-//    string playerNames[5];
+void readPlayerProfs(fstream& PlayersFile, Player (&playersList)[TEAM_SIZE], Champion (&champList)[CHAMP_COUNT]){
+    // Would have been used to search for specific teamates in the array rather than loading th whole file, for now file will be kept to 5 people
+//    string playerNames[TEAM_SIZE];
 //    cout << "Enter player names: " << endl;
-//    for(int i = 0; i < TEAM_SIZE/2; i++){
+//    for(int i = 0; i < TEAM_SIZE; i++){
 //        cout << i+1 << ") ";
 //        cin >> playerNames[i];
 //    }
 
-//    for(int i = 0; i < TEAM_SIZE; i++){
-//        Player temp;
-//    }
-//}
+    int whileCounter = 0;
+    while(!PlayersFile.eof()){
+        Player currentPlayer;
+        string tempStr;
+
+        // Name
+        getline(PlayersFile, tempStr);
+        if(tempStr == ""){
+            continue; // If seperation gap in file just skip this line
+        }
+        currentPlayer.name = tempStr;
+
+        // Champs
+        for(int i = 0; i < TEAM_SIZE; i++){
+            for(int j = 0; j < 2; j++){
+                getline(PlayersFile, tempStr);
+                currentPlayer.bestChamps[i][j] = getChamp(tempStr, champList);
+            }
+        }
+
+        //Store player into array
+        playersList[whileCounter] = currentPlayer;
+        whileCounter++;
+    }
+
+
+}
 
 //void addPlayer(fstream& PlayersFile, Champion (&champList)[CHAMP_COUNT]){
 //    Player temp;
@@ -123,14 +146,60 @@ void readChampionsFile(fstream& ChampionsFile, Champion (&champList)[CHAMP_COUNT
 //}
 
 
-//Champion championSearch(const string& name, Champion (&champList)[CHAMP_COUNT]){
+Champion getChamp(const string& name, Champion (&champList)[CHAMP_COUNT]){
+    int index = getChampIndex(name, champList, 0, CHAMP_COUNT - 1);
+    if(index == -1){
+        // give error
+    }
+
+    return champList[index];
+}
+
+int getChampIndex(const string& name, Champion (&champList)[CHAMP_COUNT], int low, int high){
+    if(high >= low){
+        int mid = (low + high) / 2;
+
+        if(champList[mid].name == name){
+            return mid;
+        }else if(champList[mid].name > name){
+            return getChampIndex(name, champList, low, mid - 1);
+        }else if(champList[mid].name < name){
+            return getChampIndex(name, champList, mid + 1, high);
+        }
+    }
+
+    return -1;
+}
+
+Player getPlayer(const string& name, Player (&playersList)[TEAM_SIZE]){
+    for(int i = 0; i <  TEAM_SIZE; i++){
+        if(playersList[i].name == name){
+            return playersList[i];
+        }
+    }
+    // throw no player found
+    Player temp;
+    return temp; // temp to get rid of error
+}
+
+//int getPlayerIndex(const string& name, Player (&playerList)[TEAM_SIZE], int low, int high){
 
 //}
 
-//Player playerSearch(const string& name, Player (&playersList)[TEAM_SIZE]){
-//    for(int i = 0; i <  CHAMP_COUNT; i++){
+void PrintChampion(const Champion& champ){
+    cout << "Name: " << champ.name << endl
+         << "Lane: " << champ.lane << endl
+         << "Role: WIP" << endl
+         << "Dmg: " << champ.damageType << endl;
+}
 
-//    }
+void PrintPlayer(const Player& player){
+    cout << "Name: " << player.name << endl
+         << "Champions: ";
 
-//    // replace with binary search
-//}
+    for(int i = 0; i < TEAM_SIZE; i++){
+        for(int j = 0; j < 2; j++){
+            cout << player.bestChamps[i][j].name << endl;
+        }
+    }
+}

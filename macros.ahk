@@ -56,3 +56,18 @@ send {End}
 return
 }
 
+^NumpadAdd::
+{
+Send +{Right}{Right}{Right}{Right}{Right}
+send ^+{Down}
+send ^+{Down}
+send ^+{Down}
+
+Loop, 10
+{
+    send {Down}
+}
+
+return
+}
+

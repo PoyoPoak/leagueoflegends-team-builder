@@ -13,7 +13,7 @@ using namespace std;
 const int CHAMP_COUNT = 148;
 
 void readChampionsFile(fstream& ChampionsFile, Champion (&champList)[CHAMP_COUNT]);
-//void readPlayerProfs(const fstream& PlayersFile, Player (&playersList)[TEAM_SIZE]);
+void readPlayerProfs(fstream& PlayersFile, Player (&playersList)[TEAM_SIZE], Champion (&champList)[CHAMP_COUNT]);
 
 //void addPlayer(fstream& PlayersFile, const Champion (&champList)[CHAMP_COUNT]);
 //void removePlayer(string &playerName, fstream& PlayersFile);
@@ -21,7 +21,12 @@ void readChampionsFile(fstream& ChampionsFile, Champion (&champList)[CHAMP_COUNT
 //void addChampion(fstream& ChampionsFile);
 //void removeChampion(fstream& ChampionsFile, const string &championName);
 
-//Champion championSearch(const string& name, Champion (&champList)[CHAMP_COUNT]);
-//Player playerSearch(const string& name, Player (&playersList)[TEAM_SIZE]);
+Champion getChamp(const string& name, Champion (&champList)[CHAMP_COUNT]);
+int getChampIndex(const string& name, Champion (&champList)[CHAMP_COUNT], int low, int high);
+Player getPlayer(const string& name, Player (&playersList)[TEAM_SIZE]);
+//int getPlayerIndex(const string& name, Player (&playerList)[TEAM_SIZE], int low, int high);
+
+void PrintChampion(const Champion& champ);
+void PrintPlayer(const Player& player);
 
 #endif // FILEMANAGE_H

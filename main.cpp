@@ -8,10 +8,10 @@ int main() {
        cout << "Error opening Champions.txt" << endl;
     }
 
-//    fstream PlayersFile("Players.txt");
-//    if(!PlayersFile.is_open()){
-//        cout << "Error opening Players.txt" << endl;
-//    }
+    fstream PlayersFile("Players.txt");
+    if(!PlayersFile.is_open()){
+        cout << "Error opening Players.txt" << endl;
+    }
 
     Champion champions[CHAMP_COUNT];
     Champion bans[TEAM_SIZE * 2];
@@ -19,23 +19,13 @@ int main() {
     Player enemyTeam[TEAM_SIZE];
 
     readChampionsFile(ChampionsFile, champions);
-    //readPlayerProfs(PlayersFile, players);
+    readPlayerProfs(PlayersFile, players, champions);
 
-
+//    PrintChampion(getChamp("Olaf", champions));
+//    PrintPlayer(getPlayer("Peter", players));
 
     ChampionsFile.close();
-//    PlayersFile.close();
-
-    // Creates test champion.
-//    Champion testChamp;
-//    testChamp.name = "Test_Champion";
-//    testChamp.lane = TOP;
-//    testChamp.roles.HardCC = 1;
-//    testChamp.roles.Poke = 1;
-//    testChamp.damageType = AD;
-//    testChamp.game = LATE;
-
-
+    PlayersFile.close();
 
     /*Order of operations
      * Read champion data into data structure
@@ -44,8 +34,8 @@ int main() {
      * Grab players' info and champions
      * Enter champion bans
      * If first pick then enter first pick else...
-     *      Enter enemy first pick
-     * Generate first/next pick
+     * Enter enemy first pick
+     * Generate first/next- pick
      * Finish
      */
 }
